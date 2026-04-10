@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Shield, Users, FileText, ArrowRight, CheckCircle } from 'lucide-react';
+import { Users, FileText, ArrowRight, CheckCircle, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LoginModal } from '@/components/modals/LoginModal';
+import cdgmLogo from '@/assets/cdgm-logo.png';
 import { useAuth } from '@/context/AuthContext';
 import { useContent } from '@/context/ContentContext';
 
@@ -32,8 +33,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="p-2 bg-emerald-500 rounded-xl"><Shield className="w-5 h-5 text-white" /></div>
-              <span className="font-semibold text-emerald-700 text-sm">Seguro</span>
+              <img src={cdgmLogo} alt="CDGM Logo" className="h-10" />
             </div>
             <Button onClick={() => setIsLoginOpen(true)} className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white">Acceder</Button>
           </div>
@@ -88,8 +88,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-[#0ea5e9] rounded-xl"><Shield className="w-6 h-6 text-white" /></div>
-              <div><h3 className="font-bold text-secondary-foreground">CDG Misiones</h3><p className="text-xs text-gray-400">Colegio de Diseñadores Gráficos</p></div>
+              <img src={cdgmLogo} alt="CDGM Logo" className="h-12" />
             </div>
             <p className="text-sm text-secondary-foreground">{footer.description}</p>
           </div>
