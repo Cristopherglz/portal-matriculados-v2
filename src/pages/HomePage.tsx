@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Shield, Users, FileText, ArrowRight, CheckCircle } from 'lucide-react';
+import { Users, FileText, ArrowRight, CheckCircle, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LoginModal } from '@/components/modals/LoginModal';
+import cdgmLogo from '@/assets/cdgm-logo.png';
 import { useAuth } from '@/context/AuthContext';
 import { useContent } from '@/context/ContentContext';
 
