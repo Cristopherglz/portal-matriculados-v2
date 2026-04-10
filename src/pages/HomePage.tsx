@@ -84,17 +84,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="bg-gray-900 text-white py-12 px-6">
+      <footer className="text-white py-12 px-6 bg-primary-foreground">
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-[#0ea5e9] rounded-xl"><Shield className="w-6 h-6 text-white" /></div>
-              <div><h3 className="font-bold">CDG Misiones</h3><p className="text-xs text-gray-400">Colegio de Diseñadores Gráficos</p></div>
+              <div><h3 className="font-bold text-secondary-foreground">CDG Misiones</h3><p className="text-xs text-gray-400">Colegio de Diseñadores Gráficos</p></div>
             </div>
-            <p className="text-gray-400 text-sm">{footer.description}</p>
+            <p className="text-sm text-secondary-foreground">{footer.description}</p>
           </div>
-          <div><h4 className="font-semibold mb-4">Contacto</h4><p className="text-gray-400 text-sm">{footer.email}</p><p className="text-gray-400 text-sm mt-1">{footer.direccion}</p></div>
-          <div><p className="text-gray-500 text-sm">© 2026 Colegio de Diseñadores Gráficos de Misiones. Todos los derechos reservados.</p></div>
+          <div><h4 className="font-semibold mb-4 text-secondary-foreground">Contacto</h4><p className="text-sm text-secondary-foreground">{footer.email}</p><p className="text-sm mt-1 text-secondary-foreground">{footer.direccion}</p></div>
+          <div className="text-secondary-foreground"><p className="text-sm text-secondary-foreground">© 2026 Colegio de Diseñadores Gráficos de Misiones. Todos los derechos reservados.</p></div>
         </div>
       </footer>
 
