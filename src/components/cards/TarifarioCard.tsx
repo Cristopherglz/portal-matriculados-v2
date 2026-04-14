@@ -22,7 +22,7 @@ export function TarifarioCard() {
         </div>
       </div>
       <p className="text-gray-600 text-sm mb-4 leading-relaxed">{cards.tarifario.description}</p>
-      <a href="https://tarifario-p6xdtjpj.manus.space/" target="_blank" rel="noopener noreferrer" className="block">
+      <a href="https://tarifario-cdgm-fb81aaf4.vercel.app/" target="_blank" rel="noopener noreferrer" className="block">
         <Button className="w-full bg-[#0ea5e9] hover:bg-[#0284c7] text-white group">
           <ExternalLink className="w-4 h-4 mr-2" />
           {cards.accesoDirecto.tarifarioText}
