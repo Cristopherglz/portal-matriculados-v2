@@ -51,7 +51,7 @@ const defaultHomeContent: HomeContent = {
     title: 'Colegio de ',
     highlightText: 'Diseñadores Gráficos',
     subtitle: ' de Misiones',
-    description: 'Sistema integral de gestión de matrículas profesionales. Accedé a tu información, mantené tus pagos al día y formá parte de nuestra comunidad.',
+    description: 'Sistema integral de gestión de matrículas profesionales. Formá parte de nuestra gran comunidad.',
     primaryButtonText: 'Acceder al sistema',
     secondaryButtonText: 'Ver Directorio',
   },
@@ -80,7 +80,7 @@ const defaultDashboardContent: DashboardContent = {
 
 const ContentContext = createContext<ContentContextType | undefined>(undefined);
 
-const HOME_VERSION = '2';
+const HOME_VERSION = '3';
 const DASH_VERSION = '2';
 
 export function ContentProvider({ children }: { children: React.ReactNode }) {
