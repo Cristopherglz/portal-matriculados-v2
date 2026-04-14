@@ -4,7 +4,7 @@ import { useContent } from '@/context/ContentContext';
 
 const accessItems = [
   { icon: Users, label: 'Directorio de Profesionales', description: 'Ver colegas matriculados', href: '/directorio', color: 'bg-sky-50 text-[#0284c7]' },
-  { icon: FileText, label: 'Tarifario', description: 'Consultar tarifas de referencia', href: 'https://tarifario-p6xdtjpj.manus.space/', external: true, color: 'bg-emerald-50 text-emerald-600' },
+  { icon: FileText, label: 'Tarifario', description: 'Consultar tarifas de referencia', href: 'https://tarifario-cdgm-fb81aaf4.vercel.app/', external: true, color: 'bg-emerald-50 text-emerald-600' },
   { icon: HelpCircle, label: 'Ayuda y Soporte', description: 'Preguntas frecuentes', href: '#', color: 'bg-amber-50 text-amber-600' },
   { icon: Settings, label: 'Configuración', description: 'Gestionar tu cuenta', href: '#datos-personales', color: 'bg-purple-50 text-purple-600' },
 ];
