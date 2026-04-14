@@ -64,12 +64,12 @@ export default function DashboardPage() {
         )}
       </main>
 
-      <footer className="bg-gray-900 text-white py-8 px-6 mt-12">
+      <footer className="bg-white text-black py-8 px-6 mt-12 border-t">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center mb-4">
             <img src={cdgmFootLogo} alt="CDGM Logo" className="h-12" />
           </div>
-          <p className="text-gray-500 text-sm">© 2026 Colegio de Diseñadores Gráficos de Misiones. Todos los derechos reservados.</p>
+          <p className="text-gray-600 text-sm">© 2026 Colegio de Diseñadores Gráficos de Misiones. Todos los derechos reservados.</p>
         </div>
       </footer>
 
