@@ -65,9 +65,8 @@ export default function DashboardPage() {
 
       <footer className="bg-gray-900 text-white py-8 px-6 mt-12">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="p-2 bg-[#0ea5e9] rounded-xl"><Shield className="w-5 h-5 text-white" /></div>
-            <div><h3 className="font-bold text-sm">CDG Misiones</h3><p className="text-xs text-gray-400">Colegio de Diseñadores Gráficos</p></div>
+          <div className="flex items-center justify-center mb-4">
+            <img src={cdgmFootLogo} alt="CDGM Logo" className="h-12" />
           </div>
           <p className="text-gray-500 text-sm">© 2026 Colegio de Diseñadores Gráficos de Misiones. Todos los derechos reservados.</p>
         </div>
