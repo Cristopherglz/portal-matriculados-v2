@@ -47,22 +47,22 @@ interface ContentContextType {
 
 const defaultHomeContent: HomeContent = {
   hero: {
-    badge: 'Sistema de Matrículas 2026',
+    badge: 'Sistema de Matrículas Profesionales',
     title: 'Colegio de ',
     highlightText: 'Diseñadores Gráficos',
     subtitle: ' de Misiones',
     description: 'Sistema integral de gestión de matrículas profesionales. Accedé a tu información, mantené tus pagos al día y formá parte de nuestra comunidad.',
-    primaryButtonText: 'Acceder al Sistema',
+    primaryButtonText: 'Acceder al sistema',
     secondaryButtonText: 'Ver Directorio',
   },
   previewCards: {
-    matricula: { title: 'Matrícula Activa', subtitle: 'DG-001 • Al día' },
+    matricula: { title: '​Sistema de Matrículas Profesionales ', subtitle: 'Colegio de Diseñadores Gráficos de Misiones' },
     profesionales: { title: 'Profesionales', subtitle: '500+ matriculados' },
-    tarifario: { title: 'Tarifario 2026', subtitle: 'Valores actualizados' },
+    tarifario: { title: 'Acceso al Tarifario para Profesionales', subtitle: 'Valores actualizados' },
   },
   footer: {
     description: 'Representando y regulando la actividad del diseño gráfico en la provincia de Misiones.',
-    email: 'contacto@colegiodg-misiones.org',
+    email: 'contacto@colegiodgmisiones.org',
     direccion: 'Posadas, Misiones, Argentina',
   },
 };
