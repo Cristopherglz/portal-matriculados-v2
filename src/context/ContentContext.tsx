@@ -80,9 +80,18 @@ const defaultDashboardContent: DashboardContent = {
 
 const ContentContext = createContext<ContentContextType | undefined>(undefined);
 
+const HOME_VERSION = '2';
+const DASH_VERSION = '2';
+
 export function ContentProvider({ children }: { children: React.ReactNode }) {
   const [homeContent, setHomeContent] = useState<HomeContent>(() => {
     try {
+      const ver = localStorage.getItem('cdg_home_version');
+      if (ver !== HOME_VERSION) {
+        localStorage.removeItem('cdg_home_content');
+        localStorage.setItem('cdg_home_version', HOME_VERSION);
+        return defaultHomeContent;
+      }
       const stored = localStorage.getItem('cdg_home_content');
       return stored ? JSON.parse(stored) : defaultHomeContent;
     } catch {
@@ -92,6 +101,12 @@ export function ContentProvider({ children }: { children: React.ReactNode }) {
 
   const [dashboardContent, setDashboardContent] = useState<DashboardContent>(() => {
     try {
+      const ver = localStorage.getItem('cdg_dash_version');
+      if (ver !== DASH_VERSION) {
+        localStorage.removeItem('cdg_dashboard_content');
+        localStorage.setItem('cdg_dash_version', DASH_VERSION);
+        return defaultDashboardContent;
+      }
       const stored = localStorage.getItem('cdg_dashboard_content');
       return stored ? JSON.parse(stored) : defaultDashboardContent;
     } catch {
