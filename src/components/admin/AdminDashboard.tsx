@@ -83,7 +83,7 @@ export function AdminDashboard() {
       <Tabs defaultValue="usuarios" className="w-full">
         <TabsList className="grid w-full grid-cols-4 mb-6 bg-sky-50">
           <TabsTrigger value="usuarios" className="data-[state=active]:bg-[#0ea5e9] data-[state=active]:text-white"><Users className="w-4 h-4 mr-2" />Usuarios</TabsTrigger>
-          <TabsTrigger value="configuracion" className="data-[state=active]:bg-[#0ea5e9] data-[state=active]:text-white"><Settings className="w-4 h-4 mr-2" />Config</TabsTrigger>
+          <TabsTrigger value="configuracion" className="data-[state=active]:bg-[#0ea5e9] data-[state=active]:text-white"><Settings className="w-4 h-4 mr-2" />Configuración</TabsTrigger>
           <TabsTrigger value="finanzas" className="data-[state=active]:bg-[#0ea5e9] data-[state=active]:text-white"><TrendingUp className="w-4 h-4 mr-2" />Finanzas</TabsTrigger>
           <TabsTrigger value="contenido" className="data-[state=active]:bg-[#0ea5e9] data-[state=active]:text-white"><FileEdit className="w-4 h-4 mr-2" />Contenido</TabsTrigger>
         </TabsList>
