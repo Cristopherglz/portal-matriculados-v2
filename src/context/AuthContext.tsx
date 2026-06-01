@@ -219,6 +219,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     <AuthContext.Provider
       value={{
         user, login, logout, isLoading, updateUser, updatePassword,
+        solicitarRecuperacion, resetPasswordConCodigo,
         marcarNotificacionLeida, enviarNotificacion, crearUsuario,
         actualizarEstadoPago, actualizarEstadoUsuario, configuracion,
         updateConfiguracion, getUsuariosMatriculados, getUsuariosAlDia,
