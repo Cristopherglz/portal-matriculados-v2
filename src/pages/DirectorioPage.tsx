@@ -28,10 +28,9 @@ export default function DirectorioPage() {
     <div className="min-h-screen bg-gradient-to-b from-[#F0F5FF] to-white">
       <motion.header initial={{ y: -100 }} animate={{ y: 0 }} className="bg-white/80 backdrop-blur-xl shadow-lg shadow-sky-100/50 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="p-2 bg-emerald-500 rounded-xl"><Shield className="w-5 h-5 text-white" /></div>
-            <span className="font-semibold text-emerald-700 text-sm">Seguro</span>
-          </div>
+          <a href="https://cdgm.org.ar" target="_blank" rel="noopener noreferrer" className="flex items-center">
+            <img src="/src/assets/cdgm-logo.png" alt="Colegio de Diseñadores Gráficos de Misiones" className="h-10 w-auto" />
+          </a>
           <a href="/"><Button variant="outline" className="border-[#0ea5e9] text-[#0ea5e9]">Volver al Inicio</Button></a>
         </div>
       </motion.header>
