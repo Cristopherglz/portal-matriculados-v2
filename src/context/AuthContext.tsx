@@ -9,6 +9,8 @@ interface AuthContextType {
   isLoading: boolean;
   updateUser: (userData: Partial<User>) => void;
   updatePassword: (currentPassword: string, newPassword: string) => Promise<boolean>;
+  solicitarRecuperacion: (email: string) => Promise<{ success: boolean; codigo?: string }>;
+  resetPasswordConCodigo: (email: string, codigo: string, newPassword: string) => Promise<boolean>;
   marcarNotificacionLeida: (notificacionId: string) => void;
   enviarNotificacion: (userId: string, notificacion: Omit<Notificacion, 'id' | 'fecha'>) => void;
   crearUsuario: (userData: Omit<User, 'id' | 'notificaciones'> & { password: string }) => Promise<User>;
