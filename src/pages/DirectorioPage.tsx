@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Search, MapPin, Mail, Phone, Instagram, Facebook, Linkedin, Globe, Palette, Shield, X, Building2 } from 'lucide-react';
+import cdgmLogo from '@/assets/cdgm-logo.png';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
