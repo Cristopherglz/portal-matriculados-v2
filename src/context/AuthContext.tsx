@@ -79,6 +79,41 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return false;
   };
 
+  // Códigos de recuperación en memoria (simulación)
+  const [recoveryCodes, setRecoveryCodes] = useState<Record<string, { codigo: string; expira: number }>>({});
+
+  const solicitarRecuperacion = async (email: string): Promise<{ success: boolean; codigo?: string }> => {
+    const foundUser = usuarios.find(u => u.email.toLowerCase() === email.toLowerCase());
+    if (!foundUser) return { success: false };
+    const codigo = Math.floor(100000 + Math.random() * 900000).toString();
+    setRecoveryCodes(prev => ({
+      ...prev,
+      [email.toLowerCase()]: { codigo, expira: Date.now() + 15 * 60 * 1000 },
+    }));
+    // Simulación: en producción se enviaría por email
+    console.log(`[Recuperación] Código para ${email}: ${codigo}`);
+    return { success: true, codigo };
+  };
+
+  const resetPasswordConCodigo = async (email: string, codigo: string, newPassword: string): Promise<boolean> => {
+    const entry = recoveryCodes[email.toLowerCase()];
+    if (!entry || entry.codigo !== codigo || entry.expira < Date.now()) return false;
+    setUsuarios(prev => prev.map(u =>
+      u.email.toLowerCase() === email.toLowerCase() ? { ...u, password: newPassword } : u
+    ));
+    if (user && user.email.toLowerCase() === email.toLowerCase()) {
+      const updated = { ...user, password: newPassword };
+      setUser(updated);
+      localStorage.setItem('cdg_user', JSON.stringify(updated));
+    }
+    setRecoveryCodes(prev => {
+      const next = { ...prev };
+      delete next[email.toLowerCase()];
+      return next;
+    });
+    return true;
+  };
+
   const marcarNotificacionLeida = (notificacionId: string) => {
     if (user) {
       const updatedNotificaciones = user.notificaciones.map(n =>
