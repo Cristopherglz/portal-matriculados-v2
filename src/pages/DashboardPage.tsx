@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { LogOut, Shield } from 'lucide-react';
+import cdgmLogo from '@/assets/cdgm-logo.png';
 import cdgmFootLogo from '@/assets/cdgm-foot-color.png';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/AuthContext';
