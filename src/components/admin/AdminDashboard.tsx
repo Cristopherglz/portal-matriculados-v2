@@ -46,6 +46,7 @@ export function AdminDashboard() {
   const usuariosActivos = usuarios.filter((u) => u.estado === 'activo');
   const usuariosDeudores = usuarios.filter((u) => u.estadoPago === 'deuda');
   const totalRecaudado = usuarios.filter((u) => u.estadoPago === 'al_dia').reduce((acc) => acc + configuracion.precioMatricula, 0);
+  const recaudadoPeriodo = Math.round(totalRecaudado * periodoConfig[periodoFinanzas].factor);
 
   const handleCreateUser = async () => {
     await crearUsuario({
