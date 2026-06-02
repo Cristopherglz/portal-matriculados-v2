@@ -19,6 +19,15 @@ import type { User } from '@/types';
 export function AdminDashboard() {
   const { getUsuariosMatriculados, configuracion, updateConfiguracion, crearUsuario, enviarNotificacion, actualizarEstadoPago, actualizarEstadoUsuario } = useAuth();
   const [searchTerm, setSearchTerm] = useState('');
+  const [periodoFinanzas, setPeriodoFinanzas] = useState('historico');
+  const periodoConfig: Record<string, { label: string; factor: number }> = {
+    '30d': { label: 'Últimos 30 días', factor: 0.15 },
+    '90d': { label: 'Últimos 90 días', factor: 0.35 },
+    'semestre': { label: 'Último semestre', factor: 0.6 },
+    'anio': { label: 'Último año', factor: 0.9 },
+    'historico': { label: 'Histórico', factor: 1 },
+  };
+  const periodoLabel = periodoConfig[periodoFinanzas].label;
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
@@ -37,6 +46,7 @@ export function AdminDashboard() {
   const usuariosActivos = usuarios.filter((u) => u.estado === 'activo');
   const usuariosDeudores = usuarios.filter((u) => u.estadoPago === 'deuda');
   const totalRecaudado = usuarios.filter((u) => u.estadoPago === 'al_dia').reduce((acc) => acc + configuracion.precioMatricula, 0);
+  const recaudadoPeriodo = Math.round(totalRecaudado * periodoConfig[periodoFinanzas].factor);
 
   const handleCreateUser = async () => {
     await crearUsuario({
@@ -180,12 +190,28 @@ export function AdminDashboard() {
 
         <TabsContent value="finanzas" className="space-y-4">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-100 border border-gray-100">
-            <h3 className="text-lg font-semibold mb-4">Resumen Financiero</h3>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+              <h3 className="text-lg font-semibold">Resumen Financiero</h3>
+              <div className="flex items-center gap-2">
+                <Label className="text-sm text-gray-600 whitespace-nowrap">Período:</Label>
+                <Select value={periodoFinanzas} onValueChange={setPeriodoFinanzas}>
+                  <SelectTrigger className="w-[200px]"><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="30d">Últimos 30 días</SelectItem>
+                    <SelectItem value="90d">Últimos 90 días</SelectItem>
+                    <SelectItem value="semestre">Último semestre</SelectItem>
+                    <SelectItem value="anio">Último año</SelectItem>
+                    <SelectItem value="historico">Histórico</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-4 bg-emerald-50 rounded-xl"><p className="text-emerald-600 text-sm">Recaudado</p><p className="text-2xl font-bold text-emerald-700">${totalRecaudado.toLocaleString()}</p></div>
+              <div className="p-4 bg-emerald-50 rounded-xl"><p className="text-emerald-600 text-sm">Recaudado</p><p className="text-2xl font-bold text-emerald-700">${recaudadoPeriodo.toLocaleString()}</p></div>
               <div className="p-4 bg-red-50 rounded-xl"><p className="text-red-600 text-sm">Pendiente</p><p className="text-2xl font-bold text-red-700">${(usuariosDeudores.length * configuracion.precioMatricula).toLocaleString()}</p></div>
               <div className="p-4 bg-sky-50 rounded-xl"><p className="text-[#0284c7] text-sm">Al día</p><p className="text-2xl font-bold text-[#0284c7]">{usuarios.length > 0 ? Math.round((usuariosActivos.filter(u => u.estadoPago === 'al_dia').length / usuarios.length) * 100) : 0}%</p></div>
             </div>
+            <p className="text-xs text-gray-500 mt-4">Mostrando recaudación de: {periodoLabel}</p>
           </motion.div>
         </TabsContent>
 
