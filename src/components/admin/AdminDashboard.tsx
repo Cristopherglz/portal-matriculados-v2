@@ -30,6 +30,9 @@ export function AdminDashboard() {
     'historico': { label: 'Histórico', factor: 1 },
   };
   const periodoLabel = periodoConfig[periodoFinanzas].label;
+  const [notifTitulo, setNotifTitulo] = useState('');
+  const [notifMensaje, setNotifMensaje] = useState('');
+  const [notifTipo, setNotifTipo] = useState<'info' | 'warning' | 'success'>('info');
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
