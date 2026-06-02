@@ -19,6 +19,15 @@ import type { User } from '@/types';
 export function AdminDashboard() {
   const { getUsuariosMatriculados, configuracion, updateConfiguracion, crearUsuario, enviarNotificacion, actualizarEstadoPago, actualizarEstadoUsuario } = useAuth();
   const [searchTerm, setSearchTerm] = useState('');
+  const [periodoFinanzas, setPeriodoFinanzas] = useState('historico');
+  const periodoConfig: Record<string, { label: string; factor: number }> = {
+    '30d': { label: 'Últimos 30 días', factor: 0.15 },
+    '90d': { label: 'Últimos 90 días', factor: 0.35 },
+    'semestre': { label: 'Último semestre', factor: 0.6 },
+    'anio': { label: 'Último año', factor: 0.9 },
+    'historico': { label: 'Histórico', factor: 1 },
+  };
+  const periodoLabel = periodoConfig[periodoFinanzas].label;
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
