@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { LogOut, Shield } from 'lucide-react';
+import { LogOut } from 'lucide-react';
+import cdgmLogo from '@/assets/cdgm-logo.png';
 import cdgmFootLogo from '@/assets/cdgm-foot-color.png';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/AuthContext';
@@ -33,10 +34,9 @@ export default function DashboardPage() {
     <div className="min-h-screen bg-gradient-to-b from-[#F0F5FF] to-white">
       <motion.header initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.8 }} className="bg-white/80 backdrop-blur-xl shadow-lg shadow-sky-100/50 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="p-2 bg-emerald-500 rounded-xl"><Shield className="w-5 h-5 text-white" /></div>
-            <span className="font-semibold text-emerald-700 text-sm">Seguro</span>
-          </div>
+          <a href="https://cdgm.org.ar" target="_blank" rel="noopener noreferrer">
+            <img src={cdgmLogo} alt="Colegio de Diseñadores Gráficos de Misiones" className="h-10 w-auto" />
+          </a>
           <Button onClick={() => setIsLogoutModalOpen(true)} variant="outline" className="border-red-200 text-red-600 hover:bg-red-50">
             <LogOut className="w-4 h-4 mr-2" />Cerrar Sesión
           </Button>
