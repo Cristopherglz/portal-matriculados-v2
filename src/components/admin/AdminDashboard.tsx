@@ -64,6 +64,19 @@ export function AdminDashboard() {
 
   const handleEditUser = (usuario: User) => { setSelectedUser(usuario); setIsEditDialogOpen(true); };
 
+  const handleEnviarNotificacionMasiva = () => {
+    const titulo = notifTitulo.trim();
+    const mensaje = notifMensaje.trim();
+    if (!titulo || !mensaje || usuarios.length === 0) return;
+    usuarios.forEach((u) => {
+      enviarNotificacion(u.id, { titulo, mensaje, tipo: notifTipo, leida: false });
+    });
+    toast.success(`Notificación enviada a ${usuarios.length} usuario${usuarios.length === 1 ? '' : 's'}`);
+    setNotifTitulo('');
+    setNotifMensaje('');
+    setNotifTipo('info');
+  };
+
   const handleEnviarNotificacion = (userId: string, tipo: 'pago' | 'general') => {
     if (tipo === 'pago') {
       enviarNotificacion(userId, { titulo: 'Recordatorio de Pago', mensaje: `Tu matrícula venció. Por favor realizá el pago de $${configuracion.precioMatricula.toLocaleString()}.`, tipo: 'warning', leida: false });
