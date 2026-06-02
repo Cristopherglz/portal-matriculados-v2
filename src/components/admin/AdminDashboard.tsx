@@ -186,6 +186,48 @@ export function AdminDashboard() {
               </div>
             </div>
           </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-100 border border-gray-100">
+            <div className="flex items-center gap-2 mb-1">
+              <Bell className="w-5 h-5 text-[#0284c7]" />
+              <h3 className="text-lg font-semibold">Enviar Notificación Personalizada</h3>
+            </div>
+            <p className="text-sm text-gray-500 mb-4">Llegará al panel de notificaciones de todos los usuarios matriculados.</p>
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <Label>Título</Label>
+                <Input placeholder="Ej: Asamblea anual del Colegio" value={notifTitulo} onChange={(e) => setNotifTitulo(e.target.value)} maxLength={120} />
+              </div>
+              <div className="space-y-2">
+                <Label>Mensaje</Label>
+                <Textarea placeholder="Escribí el contenido de la notificación..." value={notifMensaje} onChange={(e) => setNotifMensaje(e.target.value)} rows={5} maxLength={1000} />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>Tipo</Label>
+                  <Select value={notifTipo} onValueChange={(v) => setNotifTipo(v as 'info' | 'warning' | 'success')}>
+                    <SelectTrigger><SelectValue /></SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="info">Informativa</SelectItem>
+                      <SelectItem value="success">Éxito / Buena noticia</SelectItem>
+                      <SelectItem value="warning">Importante / Advertencia</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label>Destinatarios</Label>
+                  <div className="h-10 flex items-center px-3 rounded-md border border-input bg-gray-50 text-sm text-gray-700">
+                    {usuarios.length} usuario{usuarios.length === 1 ? '' : 's'} matriculado{usuarios.length === 1 ? '' : 's'}
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-end">
+                <Button onClick={handleEnviarNotificacionMasiva} disabled={!notifTitulo.trim() || !notifMensaje.trim() || usuarios.length === 0} className="bg-[#0284c7] hover:bg-[#0369a1] text-white">
+                  <Bell className="w-4 h-4 mr-2" /> Enviar a todos
+                </Button>
+              </div>
+            </div>
+          </motion.div>
         </TabsContent>
 
         <TabsContent value="finanzas" className="space-y-4">
