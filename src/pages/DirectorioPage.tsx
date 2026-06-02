@@ -32,7 +32,7 @@ export default function DirectorioPage() {
           <a href="https://cdgm.org.ar" target="_blank" rel="noopener noreferrer" className="flex items-center">
             <img src={cdgmLogo} alt="Colegio de Diseñadores Gráficos de Misiones" className="h-10 w-auto" />
           </a>
-          <a href="/"><Button variant="outline" className="border-[#0ea5e9] text-[#0ea5e9]">Volver al Inicio</Button></a>
+          <a href="/"><Button variant="outline" className="border-[#0ea5e9] text-[#0ea5e9]">Portal matriculados</Button></a>
         </div>
       </motion.header>
 
