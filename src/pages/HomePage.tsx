@@ -46,9 +46,11 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1 }}>
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="inline-flex items-center gap-2 px-4 py-2 bg-[#0ea5e9]/10 rounded-full mb-6">
-                <CheckCircle className="w-4 h-4 text-[#0ea5e9]" />
-                <span className="text-sm font-medium text-[#0ea5e9]">{hero.badge}</span>
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="inline-block mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#0ea5e9]/10 rounded-full shadow-lg shadow-[#0ea5e9]/20 animate-float">
+                  <CheckCircle className="w-4 h-4 text-[#0ea5e9]" />
+                  <span className="text-sm font-medium text-[#0ea5e9]">{hero.badge}</span>
+                </div>
               </motion.div>
               <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
                 {hero.title}<span className="text-[#0ea5e9]">{hero.highlightText}</span>{hero.subtitle}
