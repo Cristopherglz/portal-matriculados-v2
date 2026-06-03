@@ -257,9 +257,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 </div>
               </div>
               <div className="p-6">
-                {view === 'login' && (
-                  {renderForm()}
-                )}
+                {view === 'login' && renderForm()}
                 {view === 'recover-email' && renderRecoverEmail()}
                 {view === 'recover-code' && renderRecoverCode()}
                 {view === 'recover-success' && renderRecoverSuccess()}
