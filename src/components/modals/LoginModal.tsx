@@ -16,7 +16,6 @@ interface LoginModalProps {
 type View = 'login' | 'recover-email' | 'recover-code' | 'recover-success';
 
 export function LoginModal({ isOpen, onClose }: LoginModalProps) {
-  const [activeTab, setActiveTab] = useState('matriculado');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
