@@ -32,9 +32,9 @@ export default function HomePage() {
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${isScrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg shadow-sky-100/50 mx-4 mt-4 rounded-2xl' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
+            <a href="https://cdgm.org.ar" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
               <img src={cdgmLogo} alt="CDGM Logo" className="h-10" />
-            </div>
+            </a>
             <Button onClick={() => setIsLoginOpen(true)} className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white">Acceder</Button>
           </div>
         </div>
