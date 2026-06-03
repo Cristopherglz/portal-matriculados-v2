@@ -105,20 +105,20 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
     }
   };
 
-  const renderForm = (idPrefix: string, placeholder: string) => (
+  const renderForm = () => (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
-        <Label htmlFor={`email-${idPrefix}`} className="text-gray-700">Correo Electrónico</Label>
+        <Label htmlFor="email" className="text-gray-700">Correo Electrónico</Label>
         <div className="relative">
           <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-          <Input id={`email-${idPrefix}`} type="email" placeholder={placeholder} value={email} onChange={(e) => setEmail(e.target.value)} className="pl-10 border-blue-200 focus:border-[#0ea5e9]" required />
+          <Input id="email" type="email" placeholder="tu@email.com" value={email} onChange={(e) => setEmail(e.target.value)} className="pl-10 border-blue-200 focus:border-[#0ea5e9]" required />
         </div>
       </div>
       <div className="space-y-2">
-        <Label htmlFor={`password-${idPrefix}`} className="text-gray-700">Contraseña</Label>
+        <Label htmlFor="password" className="text-gray-700">Contraseña</Label>
         <div className="relative">
           <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-          <Input id={`password-${idPrefix}`} type={showPassword ? 'text' : 'password'} placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} className="pl-10 pr-10 border-blue-200 focus:border-[#0ea5e9]" required />
+          <Input id="password" type={showPassword ? 'text' : 'password'} placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} className="pl-10 pr-10 border-blue-200 focus:border-[#0ea5e9]" required />
           <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
             {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
           </button>
@@ -130,14 +130,17 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
       <Button type="submit" className="w-full bg-[#0ea5e9] hover:bg-[#0284c7] text-white" disabled={isLoading}>
         {isLoading ? 'Ingresando...' : 'Ingresar'}
       </Button>
-      <div className="text-center">
+      <div className="text-center space-y-1">
         <button
           type="button"
           onClick={() => { setError(''); setRecoveryEmail(email); setView('recover-email'); }}
-          className="text-sm text-[#0ea5e9] hover:underline"
+          className="text-sm text-[#0ea5e9] hover:underline block mx-auto"
         >
           ¿Olvidaste tu contraseña?
         </button>
+        <p className="text-xs text-gray-500">
+          Si todavía no estás matriculado, solicitá tu alta en el Colegio
+        </p>
       </div>
     </form>
   );
