@@ -258,22 +258,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
               </div>
               <div className="p-6">
                 {view === 'login' && (
-                  <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                    <TabsList className="grid w-full grid-cols-2 mb-6 bg-sky-50">
-                      <TabsTrigger value="matriculado" className="data-[state=active]:bg-[#0ea5e9] data-[state=active]:text-white">
-                        <User className="w-4 h-4 mr-2" />Matriculado
-                      </TabsTrigger>
-                      <TabsTrigger value="administrador" className="data-[state=active]:bg-[#0ea5e9] data-[state=active]:text-white">
-                        <Shield className="w-4 h-4 mr-2" />Administrador
-                      </TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="matriculado" className="mt-0">
-                      {renderForm('mat', 'tu@email.com')}
-                    </TabsContent>
-                    <TabsContent value="administrador" className="mt-0">
-                      {renderForm('admin', 'admin@colegiodg.com')}
-                    </TabsContent>
-                  </Tabs>
+                  {renderForm()}
                 )}
                 {view === 'recover-email' && renderRecoverEmail()}
                 {view === 'recover-code' && renderRecoverCode()}
