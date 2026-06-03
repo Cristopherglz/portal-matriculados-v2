@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, Lock, Shield, Eye, EyeOff, User, ArrowLeft, KeyRound, CheckCircle2 } from 'lucide-react';
+import { X, Mail, Lock, Shield, Eye, EyeOff, ArrowLeft, KeyRound, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useAuth } from '@/context/AuthContext';
 import { SecureBadge } from '@/components/ui-custom/SecureBadge';
 import { toast } from 'sonner';
